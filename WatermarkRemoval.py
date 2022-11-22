@@ -3,6 +3,7 @@ from PyPDF4 import PdfFileReader, PdfFileWriter
 from PyPDF4.pdf import ContentStream
 from PyPDF4.generic import TextStringObject, NameObject
 from PyPDF4.utils import b_
+import zipfile
 
 # print("Buscando archivos en " + os.path.realpath(sys.argv[0]))
 
@@ -42,3 +43,11 @@ for entry in entries:
 
             with open(outputFile, "wb") as outputStream:
                 output.write(outputStream)
+
+        with zipfile.ZipFile('archive_zipfile.zip', 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+            zf.write('./output.pdf', arcname='output.pdf')
+
+        os.remove('output.pdf')
+
+
+
