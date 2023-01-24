@@ -7,10 +7,7 @@ from PyPDF4.utils import b_
 # print("Buscando archivos en " + os.path.realpath(sys.argv[0]))
 
 entries = os.scandir('./')
-textsToRemove = ['You are using an UNLICENSED copy of',
-    'Scroll PDF Exporter for Confluence',
-    '. Do you find Scroll PDF Exporter useful? Consider purchasing it today:',
-    'https://marketplace.atlassian.com/apps/7019/scroll-pdf-exporter-for-confluence?tab=overview&hosting=datacenter']
+textsToRemove = ['watermark']
 outputFile = r"output.pdf"
 
 for entry in entries:
